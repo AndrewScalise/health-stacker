@@ -47,6 +47,11 @@ exports.register = asyncHandler(async (req, res, next) => {
 
     await user.save({ validateBeforeSave: false });
 
+    if (process.env.EMAIL_BYPASS === "true") {
+      console.log("Email bypassed in development:", { to, subject, text });
+      return true;
+    }
+
     return next(new ErrorResponse("Email could not be sent", 500));
   }
 });
@@ -56,6 +61,16 @@ exports.register = asyncHandler(async (req, res, next) => {
 // @access  Public
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
+
+  // Debug modification to authController.js login method
+  const _user = await User.findOne({ email }).select("+password");
+  console.log("User found:", !!_user);
+  if (_user) {
+    const isMatch = await _user.matchPassword(password);
+    console.log("Password match result:", isMatch);
+    console.log("Entered password:", password);
+    console.log("Stored password hash:", _user.password);
+  }
 
   // Validate email & password
   if (!email || !password) {
