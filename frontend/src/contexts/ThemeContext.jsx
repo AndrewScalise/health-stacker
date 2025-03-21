@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext(null);
 
-export function ThemeProvider({ children, defaultTheme = "light" }) {
+export function ThemeProvider({ children, defaultTheme = "dark" }) {
   const [theme, setTheme] = useState(() => {
     // Check if theme is stored in localStorage
     const storedTheme = window.localStorage.getItem("theme");

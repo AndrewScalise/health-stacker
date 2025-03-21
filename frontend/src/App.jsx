@@ -37,7 +37,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="light">
+    <ThemeProvider defaultTheme="dark">
       <AuthProvider>
         <ErrorBoundary>
           <Router>
