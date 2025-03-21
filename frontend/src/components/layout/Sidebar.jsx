@@ -1,3 +1,4 @@
+// src/components/layout/Sidebar.jsx
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -15,11 +16,13 @@ import { Button } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
 import { useAuth } from "../../hooks/useAuth";
 import { cn } from "../../lib/utils";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
   const { logout, user } = useAuth();
   const isPremium = user?.subscriptionStatus === "premium";
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   // Navigation items
   const navItems = [

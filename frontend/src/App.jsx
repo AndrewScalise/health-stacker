@@ -2,7 +2,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "./components/ui/sonner";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./hooks/useAuth";
 
 // Layouts
@@ -22,10 +22,10 @@ import HabitDetailPage from "./pages/habits/HabitDetailPage";
 import CalendarPage from "./pages/calendar/CalendarPage";
 import AnalyticsPage from "./pages/analytics/AnalyticsPage";
 import AccountabilityPage from "./pages/accountability/AccountabilityPage";
-import AchievementsPage from "./pages/AchievementsPage";
+import AchievementsPage from "./pages/achievements/AchievementsPage";
 import SettingsPage from "./pages/settings/SettingsPage";
-import ProfilePage from "./pages/ProfilePage";
-import SubscriptionPage from "./pages/SubscriptionPage";
+import ProfilePage from "./pages/profile/ProfilePage";
+import SubscriptionPage from "./pages/subscription/SubscriptionPage";
 
 // Route Guards
 import PrivateRoute from "./components/auth/PrivateRoute";
